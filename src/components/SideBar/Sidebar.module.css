@@ -1,0 +1,41 @@
+.sidebar {
+    
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+    .sidebar{ 
+        margin-left: -55%;
+        margin-top: -20%;
+    }    
+}
+
+/* @media only screen and (max-width: 500px) {
+    .sidebar{ 
+        margin-left: -42%;
+        margin-top: -20%;
+    }  
+  }
+
+@media only screen and (max-width: 900px) {
+    .sidebar{ 
+        margin-left: -32%;
+        margin-top: -20%;
+    }  
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .sidebar{ 
+        margin-left: -34%;
+        padding-top: 40px;
+    }  
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .sidebar{
+        margin-top: -10px;
+        padding-top: 40px;
+    }  
+  } */
+
+  

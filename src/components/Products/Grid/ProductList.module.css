@@ -1,0 +1,55 @@
+.left{
+
+	float: left;
+}
+
+.right{
+
+	float: right;
+}
+
+.bordergrey{
+
+	border:1px solid light-grey;
+}
+
+.boxsize{
+
+	height:300px;
+	width:200px;
+	margin:10px 0;
+	padding:10px 0;
+}
+
+.center{
+
+	text-align: center;
+}
+
+.mybtn {
+	
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color:white;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color:#ffb907;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13 Arial;
+    padding: 3px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: #ffb907;
+    border-image: initial;
+    width:100%;
+
+}
