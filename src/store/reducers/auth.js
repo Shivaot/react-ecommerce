@@ -4,7 +4,9 @@ const initialState = {
 	token: null,
 	userId: null,
 	loading: false,
-	error: null,
+    error: null,
+    authorities : [],
+    isCustomer: ""
 };
 
 const authStart = (state,action) => {
@@ -12,7 +14,7 @@ const authStart = (state,action) => {
 }
 
 const authSuccess = (state,action) => {
-    return { ...state, token: action.token, userId: action.userId, error: null, loading: false}
+    return { ...state, token: action.token, userId: action.userId, error: null, loading: false, authorities: action.authorities,isCustomer: ""}
 }
 
 const authFail = (state,action) => {
@@ -29,6 +31,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state,action);
         case actionTypes.AUTH_FAIL: return authFail(state,action);
         case actionTypes.AUTH_LOGOUT: return authLogout(state,action);
+        case "NOT_CUSTOMER": return { ...state, isCustomer: "negative" , loading: false}
 		default: return state;
 	}
 };

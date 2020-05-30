@@ -19,13 +19,13 @@ class SignIn extends Component {
         this.props.onAuth(this.state.email,this.state.password);
     }
 
-
     inputChangeHandler = (event) => {
         const { value, name } = event.target;
         this.setState({ [name]: value });
     }
 
-    render() {
+    render() {     
+        
         if (this.props.isAuthenticated) {
             return <Redirect to="/" />
         }
@@ -37,6 +37,9 @@ class SignIn extends Component {
         return (
             <div className="sign-in">
                 <h2>I already have an account</h2>
+                {this.props.isCustomer === "negative" ? <div className="alert alert-danger" role="alert">
+						{"Not customer"}
+					</div> : null}
                 {this.props.error ? (
 					<div className="alert alert-danger" role="alert">
 						{this.props.error}
@@ -62,13 +65,15 @@ const mapStateToProps = (state) => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        isAuthenticated: state.auth.token !== null
+        isAuthenticated: state.auth.token !== null,
+        role: state.auth.role,
+        isCustomer: state.auth.isCustomer
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAuth: (email,password) => dispatch(actions.auth(email,password))
+        onAuth: (email,password) => dispatch(actions.auth(email,password)),
     }
 }
 

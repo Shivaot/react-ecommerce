@@ -23,6 +23,7 @@ function App(props) {
     onAutoSignIn();
   }, [onAutoSignIn]);
 
+
   let routes = (
     <Switch>
       <Route exact path="/" component={HomePage} />
@@ -32,6 +33,10 @@ function App(props) {
       <Route exact path="/product/details/:id" component={ProductDetailPage} />
       <Route exact path="/forgotPassword" component={ForgotPassword} />
       <Route exact path="/changePassword" component={ChangePassword} />
+      <Route path='/seller-login' component={() => { 
+      window.location.href = 'https://www.google.in'; 
+      return null;
+      }}/>
       <Redirect to="/" />
     </Switch>
   );
@@ -64,7 +69,7 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.auth.token !== null
+    isAuthenticated: state.auth.token !== null,
   }
 }
 

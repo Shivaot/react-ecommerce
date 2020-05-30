@@ -7,11 +7,12 @@ const authStart = () => {
 	};
 };
 
-const authSuccess = (email, access_token) => {
+const authSuccess = (email, access_token,authorities) => {
 	return {
 		type: actionTypes.AUTH_SUCCESS,
 		userId: email,
 		token: access_token,
+		authorities: authorities
 	};
 };
 
@@ -55,12 +56,18 @@ export const auth = (email, password) => {
 			config: { headers: { accept: "application/json" } },
 		})
 			.then((response) => {
-                console.log(response.data.access_token, response.data.expires_in);
+				var roles = [];
+				response.data.authorities.map(el => roles.push(el.authority));	
+				if (!roles.includes("ROLE_CUSTOMER") || roles.length > 1) {	
+					dispatch({ type: "NOT_CUSTOMER" })
+					dispatch(logout());
+					return;
+				}
                 const expirationDate = new Date(new Date().getTime() + response.data.expires_in * 1000);
                 localStorage.setItem('userToken',response.data.access_token);
                 localStorage.setItem('expirationDate',expirationDate);
                 localStorage.setItem('userId',email);
-				dispatch(authSuccess(email, response.data.access_token));
+				dispatch(authSuccess(email, response.data.access_token,response.data.authorities));
 				dispatch(checkAuthTimeout(response.data.expires_in));
 			})
 			.catch((error) => {
@@ -93,3 +100,5 @@ export const authCheckState = () => {
         }
     };
 };
+
+
