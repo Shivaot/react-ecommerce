@@ -17,8 +17,7 @@ class ProductDetailPage extends Component {
         let finalFields = [];
 		let propertyNames = [];
         let propertyValues = [];
-        console.log(this.props.variations);
-        
+        // console.log(this.props.variations);
 		this.props.variations.map((vr) => {
 			return Object.keys(vr.metadata).map((key, i) => {
 				propertyNames.push(key);

@@ -12,7 +12,7 @@ const SimilarProducts = ({ id, token, history,...props }) => {
         }
         axios.get('product/customer/similar/' + id,{ headers: headers})
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 setProducts(response.data.products);
                 setImages(response.data.images);
             })

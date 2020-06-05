@@ -17,7 +17,7 @@ const ProductList = (props) => {
     },[categoryNameTillRoot]);
 
     if (props.category) {
-        console.log(props.category.category);
+        // console.log(props.category.category);
         getCategoryNameTillRoot(props.category.category);
     }
 	

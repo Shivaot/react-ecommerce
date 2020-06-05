@@ -35,7 +35,7 @@ export const fetchCategories = (token,categoryId) => {
         }
 		axios.get('customer/profile/categories' + query,{ headers: headers })
 			.then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 dispatch(fetchCategoriesSuccess(response.data,categoryId));
 			})
 			.catch(error => {

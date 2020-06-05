@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 
 const ProductCard = (props) => {
     let nameClass = [classes.center,"badge badge-warning text-wrap"]
-    console.log(props);
     
     return (
 		<div className="col-xs-12 col-sm-4">

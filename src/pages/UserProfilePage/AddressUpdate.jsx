@@ -55,29 +55,29 @@ const AddressUpdate = ({ id , token}) => {
 
     return (
         <form onSubmit={formSubmitHandler}>
-             <div className="form-group row">
-                  <input className="form-control"  type="text" value={country} onChange={countryChangeHandler} placeholder="Country" required style={{marginLeft: "22%"}}/>
+            <div className="form-group row">
+                <input className="form-control"  type="text" value={country} onChange={countryChangeHandler} placeholder="Country" required style={{marginLeft: "22%"}}/>
             </div>
-             <div className="form-group row">
-                 <input className="form-control"  type="text" value={state} onChange={stateChangeHandler} placeholder="State" required style={{marginLeft: "22%"}}/>
+            <div className="form-group row">
+                <input className="form-control"  type="text" value={state} onChange={stateChangeHandler} placeholder="State" required style={{marginLeft: "22%"}}/>
              </div>
              <div className="form-group row">
-                    <input className="form-control"  type="text" value={city} onChange={cityChangeHandler} placeholder="City" required style={{marginLeft: "22%"}}/>
+                <input className="form-control"  type="text" value={city} onChange={cityChangeHandler} placeholder="City" required style={{marginLeft: "22%"}}/>
               </div>
-                <div className="form-group row">
-                                <input className="form-control"  type="text" value={zipCode} onChange={zipCodeChangeHandler} placeholder="Zip Code" required style={{marginLeft: "22%"}}/>
-                        </div>
-                        <div className="form-group row">
-                                <input className="form-control"  type="text" value={address} onChange={addressChangeHandler} placeholder="Full Address" required style={{marginLeft: "22%"}}/>
-                        </div>
-                        <div className="form-group row">
-                                <input className="form-control"  type="text" value={label} onChange={labelChangeHandler} placeholder="Label" required style={{marginLeft: "22%"}}/>
-                        </div>           
-              <div className="form-group row">
-                    <div className="col-lg-9">
-                          <button type="Submit" className="btn btn-primary" style={{marginLeft:"-10%"}}>Submit</button>
-                    </div>
-             </div>
+            <div className="form-group row">
+                <input className="form-control"  type="text" value={zipCode} onChange={zipCodeChangeHandler} placeholder="Zip Code" required style={{marginLeft: "22%"}}/>
+            </div>
+            <div className="form-group row">
+                <input className="form-control"  type="text" value={address} onChange={addressChangeHandler} placeholder="Full Address" required style={{marginLeft: "22%"}}/>
+            </div>
+            <div className="form-group row">
+                <input className="form-control"  type="text" value={label} onChange={labelChangeHandler} placeholder="Label" required style={{marginLeft: "22%"}}/>
+            </div>           
+            <div className="form-group row">
+                <div className="col-lg-9">
+                    <button type="Submit" className="btn btn-primary" style={{marginLeft:"-10%"}}>Submit</button>
+                </div>
+            </div>
         </form>
     );
 };

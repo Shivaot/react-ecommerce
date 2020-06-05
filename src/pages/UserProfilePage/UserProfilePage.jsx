@@ -17,7 +17,7 @@ const UserProfilePage = (props) => {
         }
 		axios.get('customer/profile',{ headers: headers })
 			.then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 setFirstName(response.data.firstName);
                 setLastName(response.data.lastName);
                 setContact(response.data.contact);
@@ -69,7 +69,7 @@ const UserProfilePage = (props) => {
         
         axios.put("customer/profile",data,{ headers: headers })
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 setLoading(false);
             })
             .catch(error => {

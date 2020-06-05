@@ -36,9 +36,9 @@ export const fetchProducts = (token,categoryId,sortBy) => {
         }
         axios.get(`/product/customer/all/${categoryId}${query}`,{ headers: headers})
             .then(response => {
-                console.log(response.data.products);
-                console.log(response.data.images);
-                console.log(response.data.prices);
+                // console.log(response.data.products);
+                // console.log(response.data.images);
+                // console.log(response.data.prices);
                 dispatch(fetchProductsSuccess(response.data.products,response.data.images,response.data.prices))
             })
             .catch(error => {

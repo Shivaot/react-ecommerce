@@ -9,12 +9,10 @@ const Metadata = ({ fields,primaryValues,secondaryValues ,name,price,image,id,..
     const [disabled,setDisabled] = useState(true);
 
     const primarySelectChangeHandler = (e) => {
-        console.log(e.target.value); 
         setPrimarySelect(e.target.value)     
         setDisabled(false);  
     }
     const secondarySelectChangeHandler = (e) => {
-        console.log(e.target.value);
         setSecondarySelect(e.target.value);
         setDisabled(false);     
     }

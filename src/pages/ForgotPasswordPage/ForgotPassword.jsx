@@ -4,7 +4,6 @@ import axios from '../../axios';
 const ForgotPassword = (props) => {
     const [email,setEmail] = useState("");
     const [error,setError] = useState(null);
-
    
     const formSubmitHandler = (e) => {
 			e.preventDefault();
@@ -12,7 +11,7 @@ const ForgotPassword = (props) => {
 			axios
 				.post("/token", { email: email })
 				.then((response) => {
-					console.log(response.data);
+					// console.log(response.data);
 					props.history.push("/changePassword");
 				})
 				.catch((error) => {

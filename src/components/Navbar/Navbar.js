@@ -2,10 +2,8 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 
-
 import classes from "./Navbar.module.css";
 import SideBar from "../SideBar/SideBar";
-
 
 const Navbar = (props) => {
 	return (

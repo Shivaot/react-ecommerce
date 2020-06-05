@@ -25,8 +25,6 @@ const fetchProductDetailFail = (error) => {
 }
 
 export const fetchProductDetail = (token,productId) => {
-    console.log(token,productId);
-    
     return dispatch => {
         dispatch(fetchProductDetailStart());
         const headers = {
@@ -34,7 +32,7 @@ export const fetchProductDetail = (token,productId) => {
         }
 		axios.get('/product/customer/' + productId,{ headers: headers })
 			.then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 dispatch(fetchProductDetailSuccess(response.data.product,response.data.productVarPlusImagesDTO.productVariation,response.data.productVarPlusImagesDTO.images,response.data.productVarPlusImagesDTO.productVariation[0].price));
 			})
 			.catch(error => {

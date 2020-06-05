@@ -13,7 +13,7 @@ const ActivationPage = (props) => {
 			.put(`customer/activate/${token}`)
 			.then((response) => {
 				setLoading(false);
-				console.log(response);
+				// console.log(response);
 			})
 			.catch((error) => {
 				setLoading(false);

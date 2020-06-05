@@ -42,7 +42,7 @@ const UserProfileViewAddresses = ({ token }) => {
         axios.delete('customer/profile/address/' + id,{ headers: headers })
             .then(response => {
                 setDeleted(true);
-                console.log(response);
+                // console.log(response);
             })
             .catch(error => {
                 if (error.response) {

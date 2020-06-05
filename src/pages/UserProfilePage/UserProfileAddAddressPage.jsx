@@ -34,7 +34,7 @@ const UserProfileAddAddressPage = (props) => {
         }
         axios.post('/customer/profile/address',postData,{headers: headers })
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 setSuccess(true);
             })
             .catch(error => {
