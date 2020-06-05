@@ -15,6 +15,9 @@ import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import ForgotPassword from './pages/ForgotPasswordPage/ForgotPassword';
 import ChangePassword from './pages/ForgotPasswordPage/ChangePassword';
+import UserProfileAddAddressPage from './pages/UserProfilePage/UserProfileAddAddressPage';
+import UserProfileViewAddressesPage from './pages/UserProfilePage/UserProfileViewAddressesPage';
+
 
 function App(props) {
   const { onAutoSignIn } = props;
@@ -33,10 +36,11 @@ function App(props) {
       <Route exact path="/product/details/:id" component={ProductDetailPage} />
       <Route exact path="/forgotPassword" component={ForgotPassword} />
       <Route exact path="/changePassword" component={ChangePassword} />
-      <Route path='/seller-login' component={() => { 
-      window.location.href = 'https://www.google.in'; 
-      return null;
-      }}/>
+      <Route exact path="/profile/viewAddresses" component={UserProfileViewAddressesPage} />
+      <Route exact path="/cart" component={CheckoutPage} />
+      <Route exact path="/profile" component={UserProfilePage} />
+      <Route exact path="/profile/addAddress" component={UserProfileAddAddressPage} />
+      <Route path='/seller-login' component={() => { window.location.href = 'http://localhost:3001';  return null; }}/>
       <Redirect to="/" />
     </Switch>
   );
@@ -52,13 +56,12 @@ function App(props) {
         <Route exact path="/product/details/:id" component={ProductDetailPage} />
         <Route exact path="/cart" component={CheckoutPage} />
         <Route exact path="/profile" component={UserProfilePage} />
+        <Route exact path="/profile/addAddress" component={UserProfileAddAddressPage} />
+        <Route exact path="/profile/viewAddresses" component={UserProfileViewAddressesPage} />
         <Redirect to="/" />
     </Switch>
     );
   }
-  // if (condition) {
-  //   // return...
-  // }
   return (
     <div className="App">
       <Navbar />

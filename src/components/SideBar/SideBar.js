@@ -65,6 +65,8 @@ const SideBar = (props) => {
 		const headers = {
 			Authorization: "Bearer" + token,
 		};
+		console.log(props.currId);
+		
 		let query = "";
 		if (props.currId) {
 			query = `?categoryId=${props.currId}`;
@@ -72,14 +74,18 @@ const SideBar = (props) => {
 		axios
 			.get("customer/profile/categories" + query, { headers: headers })
 			.then((response) => {
-				console.log(response.data[0].parentId.id);
-				prevCatId = response.data[0].parentId.id;
-				console.log(prevCatId);
+				console.log(response.data[0]);
+				if (!response.data[0].parentId.parentId) {
+					onFetchCategories(token);
+				}
+				prevCatId = response.data[0].parentId.parentId.id;
+				if (prevCatId) {
+					onFetchCategories(token,prevCatId);
+				} 
 			})
 			.catch((error) => {
-				console.log(error.response.data.error);
+				console.log(error.response);
 			});
-		onFetchCategories(token, prevCatId);
 	};
 
 	let content = props.error

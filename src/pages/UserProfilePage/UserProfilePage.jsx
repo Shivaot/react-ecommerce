@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import axios from '../../axios';
+import { NavLink } from 'react-router-dom';
 
 const UserProfilePage = (props) => {
     const [firstName,setFirstName] = useState("");
@@ -42,7 +43,7 @@ const UserProfilePage = (props) => {
     const imageChangeHandler = (e) => {
         var file = e.target.files[0];
         var reader = new FileReader();
-        reader.onloadend = function() {
+        reader.onloadend = function() {            
             setImage(reader.result);
         }
         reader.readAsDataURL(file);
@@ -52,14 +53,20 @@ const UserProfilePage = (props) => {
         e.preventDefault();
         setLoading(true);
         const headers = {
-			Authorization: 'Bearer' + props.token
+		  	Authorization: 'Bearer' + props.token
+        }
+        let transformedImage = image;
+        if (transformedImage && transformedImage.includes('http'))  {
+          transformedImage = null;
         }
         const data = {
             "firstName": firstName,
             "lastName": lastName,
             "contact": contact,
-            "image": image
+            "image": transformedImage
         }
+        console.log(data);
+        
         axios.put("customer/profile",data,{ headers: headers })
             .then(response => {
                 console.log(response.data);
@@ -86,6 +93,8 @@ const UserProfilePage = (props) => {
         <div className="card" >
           <div className="card-body">
             <div className="e-profile">
+            <NavLink to="/profile/addAddress" style={{marginLeft: "70%"}}>Add Address</NavLink><br />
+            <NavLink to="/profile/viewAddresses" style={{marginLeft: "70%"}}>View Addresses</NavLink>
               <div className="row">
                 <div className="col-12 col-sm-auto mb-3">
                   <div className="mx-auto" style={{width: "140px"}}>
@@ -97,7 +106,6 @@ const UserProfilePage = (props) => {
                 <div className="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div className="text-center text-sm-left mb-2 mb-sm-0">
                     <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">{firstName+" "+ lastName}</h4>
-                    
                     <div className="mt-2">
                       <input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={imageChangeHandler} />
                     </div>
@@ -106,7 +114,7 @@ const UserProfilePage = (props) => {
                 </div>
               </div>
               <ul className="nav nav-tabs">
-                <li className="nav-item"><a href="#/" className="active nav-link">Settings</a></li>
+                <li className="nav-item"><a href="#/" className="active nav-link">Details</a></li>
               </ul>
               <div className="tab-content pt-3">
                 <div className="tab-pane active">

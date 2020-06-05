@@ -36,7 +36,7 @@ const CartPage = (props) => {
                 </div>
             </div>
             {props.cartItems.map(item => (
-                <CheckoutItem id={item.id} image={item.image} name={item.name} quantity={item.qty} price={item.price}/>
+                <CheckoutItem key={item.id} id={item.id} image={item.image} name={item.name} quantity={item.qty} price={item.price}/>
             ))}
             <div className="total">
                 <span>TOTAL : Rs {totalPrice}</span>
